@@ -10,7 +10,7 @@
         Game.canvasContext = Game.canvas.getContext("2d");
         //debugger
         Game.balloonSprite = new Image();
-        Game.balloonSprite.src = 'sm_balloon.png';
+        Game.balloonSprite.src = './logo.png';
         window.setTimeout(Game.mainLoop, 1000);
     };
 
