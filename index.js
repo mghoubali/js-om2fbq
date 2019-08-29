@@ -1,4 +1,5 @@
-
+    "use strict";
+   
     var Game = {
         canvas : undefined,
         canvasContext : undefined,
@@ -9,11 +10,14 @@
         Game.canvas = document.getElementById("myCanvas");
         Game.canvasContext = Game.canvas.getContext("2d");
         //debugger
-        Game.balloonSprite = new Image(100, 200);
+        Game.balloonSprite = new Image();
+        Game.balloonSprite.width = 50;
+        Game.balloonSprite.height = 50;
+
         //debugger
         Game.balloonSprite.src = './logo.png';
 
-        console.log(Game.balloonSprite);
+        //console.log(Game.balloonSprite);
         window.setTimeout(Game.mainLoop, 1000);
     };
 
@@ -38,8 +42,12 @@
         Game.canvasContext.save();
         Game.canvasContext.translate(position.x, position.y);
         debugger
-        Game.canvasContext.drawImage(sprite,  0, 0, sprite.width, sprite.height,
-                                              0, 0, sprite.width, sprite.height);
+        Game.balloonSprite.onload = function() {
+          Game.canvasContext.drawImage(this, 50, 50);
+        };
+
+
+        //Game.canvasContext.drawImage(sprite,  0, 0);
         Game.canvasContext.restore();
     };
 
