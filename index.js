@@ -14,10 +14,10 @@
         Game.balloonSprite.src = 'logo.png';
         Game.balloonSprite.width = 100;
         Game.balloonSprite.height = 100;*/
-        Game.mainLoop;
+        Game.mainLoop();
     };
 
-    document.addEventListener('DOMContentLoaded', Game.start);
+    //document.addEventListener('DOMContentLoaded', Game.start());
 
     Game.draw = function(){
         Game.canvasContext.fillStyle = "yellow";
@@ -31,11 +31,9 @@
     Game.drawImage = function(sprite, position){
         Game.canvasContext.save();
         Game.canvasContext.translate(position.x, position.y);
-        sprite.onload = function(){
-          Game.canvasContext.drawImage(this,  50, 50, this.width, this.height,
-                                              50, 50, this.width, this.height);
-        }
-
+        
+        Game.canvasContext.drawImage(sprite,  0, 0, sprite.width, sprite.height,
+                                              0, 0, sprite.width, sprite.height);
         
         Game.canvasContext.restore();
     };
@@ -43,4 +41,9 @@
     Game.mainLoop = function(){
         Game.draw();
     };
+
+    window.onload = function(){
+      Game.start()
+    }
+    window.onload()
     
